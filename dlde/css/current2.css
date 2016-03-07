@@ -1,0 +1,5 @@
+#menu li a:hover, #menu li a.current2 { color: #AF1515; background-color:#FFFFFF;}
+#menu { padding-top:1px; height: 200px; 
+background-color:#666666; height:149px; width:auto; padding-left:1px;}
+
+	#menu li a { float: left; width: 550px; height:9px; text-align: left; font-weight: bold; font-size: 1.2em; padding: 7px 0 21px; color: #ccc; text-indent:10px; }

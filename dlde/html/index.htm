@@ -1,0 +1,44 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"  "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<title>Untitled Document</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<meta http-equiv="Content-Style-Type" content="text/css">
+<meta http-equiv="Content-Script-Type" content="text/javascript">
+<script type="text/JavaScript">
+function addRow(r){
+var root = r.parentNode;//the root
+var allRows = root.getElementsByTagName('tr');//the rows' collection
+var cRow = allRows[0].cloneNode(true)//the clone of the 1st row
+var cInp = cRow.getElementsByTagName('input');//the inputs' collection of the 1st row
+for(var i=0;i<cInp.length;i++){//changes the inputs' names (indexes the names)
+cInp[i].setAttribute('name',cInp[0].getAttribute('name')+'_'+(allRows.length+1))
+}
+var cSel = cRow.getElementsByTagName('select')[0];
+cSel.setAttribute('name',cSel.getAttribute('name')+'_'+(allRows.length+1));//change the selecet's name
+root.appendChild(cRow);//appends the cloned row as a new row
+}
+</script>
+</head>
+<body>
+<form action="" method="get">
+  <table width="766"  border="0" cellspacing="0" cellpadding="0">
+    <tr>
+      <td width="191"><img src="../images.jpg" /></td>
+      <td width="191"><input type="text" name="textfield_b" /></td>
+
+      <td width="98"><select name="select">
+        <option value="item1" selected="selected">item1</option>
+        <option value="item2">item2</option>
+        <option value="item3">item3</option>
+        <option value="item4">item4</option>
+        <option value="item5">item5</option>
+
+      </select></td>
+      <td width="286"><input name="button" type="button" value="+" onclick="addRow(this.parentNode.parentNode)"></td>
+    </tr>
+  </table><br /><br />
+  <input name="" type="submit" value="Submit" />
+</form>
+</body>
+</html> 
